@@ -13,7 +13,7 @@
                            class="w-full rounded-md border border-black bg-white py-3 px-6 text-base font-medium outline-none"/>
                 </div>
                 <div class="mb-5">
-                    <label for="identification" class="mb-3 block font-medium">Phone</label>
+                    <label for="identification" class="mb-3 block font-medium">Identificator</label>
                     <input type="text" name="identification" id="identification" placeholder="identification" v-model="form.identification"
                            class="w-full rounded-md border border-black bg-white py-3 px-6 text-base font-medium outline-none"/>
                 </div>

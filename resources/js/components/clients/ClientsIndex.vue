@@ -1,6 +1,5 @@
 <template>
     <nav-bar></nav-bar>
-
     <div class="flex items-center justify-center w-full pb-10">
         <div class="w-full grid grid-cols-2">
             <div>
@@ -216,41 +215,11 @@ import useLandUnits from "../../composables/landUnits";
 
 export default {
     components: {NavBar},
-    computed: {
-        // filteredClients() {
-        //     this.clients.value = this.clients.filter((client)=> {return !client.property.length})
-        //     console.log(this.clients.value)
-        // },
-        // filteredProperties() {
-        //     console.log(this.properties)
-        //     // this.properties.value = this.properties.filter()
-        //     // console.log(this.properties.value)
-        // }
-
-    },
     watch: {
         checkedNames: function () {
-            if (this.checkedNames.includes("clients")) {
-                this.filterClients()
-            }else {
-                this.getClients()
-            }
-
-            if (this.checkedNames.includes("properties")) {
-                this.filterProperties()
-            }else {
-                if (this.clientId) {
-                    this.showProperties(this.clientId)
-                }
-            }
-
-            if (this.checkedNames.includes("units" )) {
-                this.filterLandUnits()
-            }else {
-                if (this.propertyId) {
-                    this.showLandUnits(this.propertyId)
-                }
-            }
+            this.checkedNames.includes("clients") ? this.filterClients() : this.getClients();
+            this.checkedNames.includes("properties") ? this.filterProperties() : (this.clientId ? this.showProperties(this.clientId) : console.log())
+            this.checkedNames.includes("units" ) ? this.filterLandUnits() : (this.propertyId ? this.showLandUnits(this.propertyId): console.log())
         }
     },
     setup: function () {
@@ -278,12 +247,10 @@ export default {
 
         const filterProperties = async  () => {
             properties.value = properties.value.filter((property) => {return !property.land.length})
-            console.log(properties.value)
         }
 
         const filterLandUnits = async () => {
             landUnits.value = landUnits.value.filter((unit) => {return !unit.land_usage_id})
-            console.log(landUnits.value)
         }
 
         const getLandUsages = async () => {
@@ -296,10 +263,10 @@ export default {
                 if (id !== clientId.value)  {
                     clicked2.value = false
             }
+            propertyId.value = false;
             clicked.value = true;
             clientId.value = id;
             properties.value = response.data;
-            console.log(properties.value)
         }
 
         const showLandUnits = async (id) => {
