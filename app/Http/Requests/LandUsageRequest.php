@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class WarehouseRequest extends FormRequest
+class LandUsageRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +13,7 @@ class WarehouseRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,9 @@ class WarehouseRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'category' => ['required', 'string'],
+            'identification' => ['required', 'string'],
+            'type' => ['required', 'string'],
         ];
     }
 }

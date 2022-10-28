@@ -6,14 +6,14 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Partner extends Model
+class Client extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['company', 'work_field', 'company_size', 'phone', 'email', 'address'];
+    protected $fillable = ['state_id', 'type', 'name', 'address', 'email', 'phone'];
 
-    public function sale(): HasMany
+    public function property(): HasMany
     {
-        return $this->hasMany(Sale::class);
+        return $this->hasMany(Property::class);
     }
 }

@@ -13,14 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('partners', function (Blueprint $table) {
+        Schema::create('land_units', function (Blueprint $table) {
             $table->id();
-            $table->string('company');
-            $table->string('work_field')->default('not specified');
-            $table->integer('company_size')->nullable();
-            $table->string('phone')->default('not specified');
-            $table->string('email')->default('not specified');
-            $table->string('address')->default('not specified');
+            $table->unsignedBigInteger('property_id');
+            $table->unsignedBigInteger('land_usage_id')->nullable();
+            $table->string('cadastral_nr');
+            $table->float('area');
+            $table->date('border_measurement_date');
             $table->timestamps();
         });
     }
@@ -32,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('partners');
+        Schema::dropIfExists('land_units');
     }
 };

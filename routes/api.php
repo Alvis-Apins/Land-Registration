@@ -1,7 +1,9 @@
 <?php
 
-use App\Http\Controllers\Api\V1\PartnerController;
-use Illuminate\Http\Request;
+use App\Http\Controllers\Api\V1\ClientController;
+use App\Http\Controllers\Api\V1\LandUnitController;
+use App\Http\Controllers\Api\V1\LandUsageController;
+use App\Http\Controllers\Api\V1\PropertyController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,9 +16,11 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+Route::get('/clients/properties/{id}', [ClientController::class, 'properties']);
+Route::apiResource('clients', ClientController::class);
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::get('/properties/land-units/{id}', [PropertyController::class, 'landUnits']);
+Route::apiResource('properties', PropertyController::class);
 
-Route::apiResource('partners', PartnerController::class);
+Route::apiResource('landUnits', LandUnitController::class);
+Route::apiResource('landUsage', LandUsageController::class);
