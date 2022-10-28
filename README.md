@@ -4,6 +4,8 @@ Info:
 
 Application for viewing, editing and deleting client, property and land unit information.
 
+Demo video of the working application - https://streamable.com/aqjrro
+
 ---
 
 Required Tools:
@@ -45,6 +47,8 @@ open 2 terminals and pass following commands in each terminal
 <li>Aplication is up and running get the localhost address that php artisan serve provided</li>
 <li>Click generate Api-key and refresh page</li>
 </ul>
+
+![Screenshot from 2022-10-28 18-05-52](https://user-images.githubusercontent.com/104777801/198668024-7e057e0e-b862-4e90-9642-5c4857c6abcc.png)
 
 
 
