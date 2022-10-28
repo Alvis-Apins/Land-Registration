@@ -12,6 +12,7 @@ Required Tools:
 <ul>
 <li>Laravel 9</li>
 <li>PHP - 8.0</li>
+<li>Vue 3</li>
 <li>MySql</li>
 <li>Composer</li>
 </ul>
